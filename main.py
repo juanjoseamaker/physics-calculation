@@ -10,11 +10,10 @@ class Body:
         return (final_position, final_velocity, self.acceleration)
 
 def main():
-    body = Body(0, 5, -1)
+    body = Body(0, 15, -1)
 
-    for time in range(100):
-        magnitudes = body.get_magnitudes(time)
-        print(magnitudes)
+    import drawing
+    drawing.start_drawing(body)
 
 if __name__ == '__main__':
     main()
