@@ -10,10 +10,19 @@ class Body:
         return (final_position, final_velocity, self.acceleration)
 
 def main():
-    body = Body(0, 15, -1)
+    import sys
 
-    import drawing
-    drawing.start_drawing(body)
+    if len(sys.argv) == 1:
+        print('Usage:', sys.argv[0], '[m:magnitudes|h:help] [position] [velocity] [acceleration]')
+    elif sys.argv[1] == 'h' or sys.argv[1] == 'help':
+        print('Create a grap of position, velocity, acceleration with "', sys.argv[0], 'm (position) (velocity) (acceleration)"')
+    elif (sys.argv[1] == 'm' or sys.argv[1] == 'magnitudes') and len(sys.argv) == 5:
+        body = Body(float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4]))
+
+        import drawing
+        drawing.start_drawing(body)
+    else:
+        print('Usage:', sys.argv[0], '[m:magnitudes|h:help] [position] [velocity] [acceleration]')
 
 if __name__ == '__main__':
     main()
